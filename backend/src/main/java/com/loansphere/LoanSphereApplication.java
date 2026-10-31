@@ -1,7 +1,15 @@
+
 package com.loansphere;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class LoanSphereApplication {
+
     public static void main(String[] args) {
-        System.out.println("LoanSphere backend");
+
+        SpringApplication.run(LoanSphereApplication.class, args);
+
     }
 }
