@@ -1,1 +1,26 @@
-export default function App() { return <h1>LoanSphere</h1>; }
+
+import React from "react";
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+
+function App() {
+
+    return (
+        <div className="app-container">
+
+            <Sidebar />
+
+            <div className="main-content">
+
+                <Navbar />
+
+                <Dashboard />
+
+            </div>
+
+        </div>
+    );
+}
+
+export default App;
