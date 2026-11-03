@@ -17,10 +17,13 @@ public interface CustomerRepository
     boolean existsByEmail(String email);
 
     // Search customers by first name, last name or email
-    Page<Customer> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
-            String firstName,
-            String lastName,
-            String email,
-            Pageable pageable
-    );
+
+Page<Customer> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrPhoneContaining(
+        String firstName,
+        String lastName,
+        String email,
+        String phone,
+        Pageable pageable
+);
+
 }

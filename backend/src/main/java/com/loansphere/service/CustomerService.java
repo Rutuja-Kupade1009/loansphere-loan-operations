@@ -120,29 +120,33 @@ public class CustomerService {
     }
     
     // 6. Search Customers with Pagination and Sorting
-    public Page<CustomerResponseDTO> searchCustomers(
-            String keyword, Pageable pageable) {
+   
+public Page<CustomerResponseDTO> searchCustomers(
+        String keyword, Pageable pageable) {
 
-        Page<Customer> customers;
+    Page<Customer> customers;
 
-        if (keyword == null || keyword.isBlank()) {
+    if (keyword == null || keyword.isBlank()) {
 
-            customers = customerRepository.findAll(pageable);
+        customers = customerRepository.findAll(pageable);
 
-        } else {
+    } else {
 
-            customers =
-                    customerRepository
-                    .findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
-                            keyword,
-                            keyword,
-                            keyword,
-                            pageable
-                    );
-        }
+        String searchKeyword = keyword.trim();
 
-        return customers.map(this::convertToDTO);
+        customers = customerRepository
+                .findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrPhoneContaining(
+                        searchKeyword,
+                        searchKeyword,
+                        searchKeyword,
+                        searchKeyword,
+                        pageable
+                );
     }
+
+    return customers.map(this::convertToDTO);
+}
+
 
 
     // Entity to Response DTO Conversion
