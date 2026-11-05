@@ -23,3 +23,8 @@ LoanSphere is a portfolio full-stack B2B web application for a lending organizat
 
 ## Getting started
 See `docs/PROJECT_PLAN.md` for the implementation sequence and `docs/ARCHITECTURE.md` for the technical design. Configure local database credentials outside version control before running the backend.
+
+## Project Demo
+
+LoanSphere – Customer Management Module Demo
+[customermanagement.webm](https://github.com/user-attachments/assets/d45a212f-c126-486d-bec6-cc820c05ad05)
