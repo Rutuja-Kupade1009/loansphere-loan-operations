@@ -1,5 +1,6 @@
-
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import {
     Dashboard,
     People,
@@ -13,13 +14,13 @@ import {
 const Sidebar = () => {
 
     const menuItems = [
-        { name: "Dashboard", icon: <Dashboard />, active: true },
-        { name: "Customers", icon: <People /> },
-        { name: "Loan Products", icon: <AccountBalance /> },
-        { name: "Applications", icon: <Assignment /> },
-        { name: "Repayments", icon: <Payments /> },
-        { name: "Reports", icon: <Assessment /> },
-        { name: "Settings", icon: <Settings /> }
+        { name: "Dashboard", icon: <Dashboard />, path: "/" },
+        { name: "Customers", icon: <People />, path: "/customers" },
+        { name: "Loan Products", icon: <AccountBalance />, path: "/loan-products" },
+        { name: "Applications", icon: <Assignment />, path: "/applications" },
+        { name: "Repayments", icon: <Payments />, path: "/repayments" },
+        { name: "Reports", icon: <Assessment />, path: "/reports" },
+        { name: "Settings", icon: <Settings />, path: "/settings" }
     ];
 
     return (
@@ -33,15 +34,21 @@ const Sidebar = () => {
             <p className="menu-heading">MAIN MENU</p>
 
             <div className="menu-list">
-                {menuItems.map((item, index) => (
-                    <div
-                        className={`menu-item ${item.active ? "active" : ""}`}
-                        key={index}
+
+                {menuItems.map((item) => (
+                    <NavLink
+                        to={item.path}
+                        key={item.name}
+                        end={item.path === "/"}
+                        className={({ isActive }) =>
+                            `menu-item ${isActive ? "active" : ""}`
+                        }
                     >
                         {item.icon}
                         <span>{item.name}</span>
-                    </div>
+                    </NavLink>
                 ))}
+
             </div>
 
             <div className="sidebar-footer">
